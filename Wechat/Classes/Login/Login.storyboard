@@ -136,7 +136,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8dr-IX-RS0">
                                 <rect key="frame" x="100" y="141" width="400" height="200"/>
                                 <subviews>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="shaoyao" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHl-LF-Vjy">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="duanzihao" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PHl-LF-Vjy" userLabel="用户名">
                                         <rect key="frame" x="0.0" y="23" width="400" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="42" id="dYA-f0-Jtq"/>
@@ -150,7 +150,7 @@
                                             </mask>
                                         </variation>
                                     </textField>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="shaoyao" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJC-Db-8Fz">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="duanzihao" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QJC-Db-8Fz" userLabel="密码">
                                         <rect key="frame" x="0.0" y="75" width="400" height="42"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="42" id="KxY-Zc-YTo"/>
@@ -196,7 +196,13 @@
                             <constraint firstItem="8dr-IX-RS0" firstAttribute="top" secondItem="brZ-6U-XrT" secondAttribute="bottom" constant="77" id="dbL-1b-Hhu"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Oq-HT-IwC"/>
+                    <navigationItem key="navigationItem" id="8Oq-HT-IwC">
+                        <barButtonItem key="leftBarButtonItem" title="取消" id="0cB-Gl-nnh">
+                            <connections>
+                                <action selector="cancel:" destination="tgS-dE-XKx" id="FRe-pM-OcL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="leftConstraint" destination="I2B-uV-JxI" id="gkx-n9-CbF"/>
                         <outlet property="loginBtn" destination="IoA-91-kmz" id="q4j-t6-PwR"/>

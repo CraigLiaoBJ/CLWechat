@@ -143,6 +143,11 @@
 		5E2045621B73037B00BE4594 /* DDXMLNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2044DC1B73037B00BE4594 /* DDXMLNode.m */; };
 		5E2045631B73037B00BE4594 /* build-libidn.sh in Resources */ = {isa = PBXBuildFile; fileRef = 5E2044E01B73037B00BE4594 /* build-libidn.sh */; };
 		5E2045641B73037B00BE4594 /* libidn.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E2044E21B73037B00BE4594 /* libidn.a */; };
+		5E20456B1B73619F00BE4594 /* MBProgressHUD+HM.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045671B73619F00BE4594 /* MBProgressHUD+HM.m */; };
+		5E20456C1B73619F00BE4594 /* MBProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 5E2045681B73619F00BE4594 /* MBProgressHUD.bundle */; };
+		5E20456D1B73619F00BE4594 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20456A1B73619F00BE4594 /* MBProgressHUD.m */; };
+		5E2045761B738BAA00BE4594 /* WCNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045751B738BAA00BE4594 /* WCNavigationController.m */; };
+		5E2045791B73968500BE4594 /* WCMeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045781B73968500BE4594 /* WCMeViewController.m */; };
 		5E856AD81B72252A002B9CF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856AD71B72252A002B9CF2 /* main.m */; };
 		5E856ADB1B72252A002B9CF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856ADA1B72252A002B9CF2 /* AppDelegate.m */; };
 		5E856ADE1B72252A002B9CF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856ADD1B72252A002B9CF2 /* ViewController.m */; };
@@ -446,6 +451,15 @@
 		5E2044E21B73037B00BE4594 /* libidn.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libidn.a; sourceTree = "<group>"; };
 		5E2044E31B73037B00BE4594 /* stringprep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = stringprep.h; sourceTree = "<group>"; };
 		5E2044E41B73037B00BE4594 /* XMPPFramework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMPPFramework.h; sourceTree = "<group>"; };
+		5E2045661B73619F00BE4594 /* MBProgressHUD+HM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+HM.h"; sourceTree = "<group>"; };
+		5E2045671B73619F00BE4594 /* MBProgressHUD+HM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+HM.m"; sourceTree = "<group>"; };
+		5E2045681B73619F00BE4594 /* MBProgressHUD.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = MBProgressHUD.bundle; sourceTree = "<group>"; };
+		5E2045691B73619F00BE4594 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		5E20456A1B73619F00BE4594 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		5E2045741B738BAA00BE4594 /* WCNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCNavigationController.h; sourceTree = "<group>"; };
+		5E2045751B738BAA00BE4594 /* WCNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCNavigationController.m; sourceTree = "<group>"; };
+		5E2045771B73968500BE4594 /* WCMeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCMeViewController.h; sourceTree = "<group>"; };
+		5E2045781B73968500BE4594 /* WCMeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCMeViewController.m; sourceTree = "<group>"; };
 		5E856AD21B72252A002B9CF2 /* Wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E856AD61B72252A002B9CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E856AD71B72252A002B9CF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -497,6 +511,7 @@
 		5E20436E1B7237CA00BE4594 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				5E20456E1B7369E500BE4594 /* Controllers */,
 				5E856ADF1B72252A002B9CF2 /* Main.storyboard */,
 			);
 			path = Main;
@@ -1324,6 +1339,45 @@
 			path = libidn;
 			sourceTree = "<group>";
 		};
+		5E2045651B73619F00BE4594 /* MBProgessHUD */ = {
+			isa = PBXGroup;
+			children = (
+				5E2045661B73619F00BE4594 /* MBProgressHUD+HM.h */,
+				5E2045671B73619F00BE4594 /* MBProgressHUD+HM.m */,
+				5E2045681B73619F00BE4594 /* MBProgressHUD.bundle */,
+				5E2045691B73619F00BE4594 /* MBProgressHUD.h */,
+				5E20456A1B73619F00BE4594 /* MBProgressHUD.m */,
+			);
+			path = MBProgessHUD;
+			sourceTree = "<group>";
+		};
+		5E20456E1B7369E500BE4594 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E2045771B73968500BE4594 /* WCMeViewController.h */,
+				5E2045781B73968500BE4594 /* WCMeViewController.m */,
+			);
+			name = Controllers;
+			path = ../../../../Controllers;
+			sourceTree = "<group>";
+		};
+		5E2045721B738B6800BE4594 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				5E2045731B738B8100BE4594 /* Controllers */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		5E2045731B738B8100BE4594 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				5E2045741B738BAA00BE4594 /* WCNavigationController.h */,
+				5E2045751B738BAA00BE4594 /* WCNavigationController.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
 		5E856AC91B72252A002B9CF2 = {
 			isa = PBXGroup;
 			children = (
@@ -1387,6 +1441,7 @@
 		5E856AFB1B7225C7002B9CF2 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				5E2045721B738B6800BE4594 /* Common */,
 				5E2043711B72384E00BE4594 /* Others */,
 				5E20436E1B7237CA00BE4594 /* Main */,
 				5E20436D1B7237AE00BE4594 /* Login */,
@@ -1398,6 +1453,7 @@
 		5E856AFC1B7225C7002B9CF2 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				5E2045651B73619F00BE4594 /* MBProgessHUD */,
 				5E2043971B73037900BE4594 /* XMPP */,
 				5E2043831B73024400BE4594 /* Category */,
 			);
@@ -1490,6 +1546,7 @@
 				5E856AE61B72252A002B9CF2 /* LaunchScreen.xib in Resources */,
 				5E856AE31B72252A002B9CF2 /* Images.xcassets in Resources */,
 				5E20455E1B73037B00BE4594 /* README.txt in Resources */,
+				5E20456C1B73619F00BE4594 /* MBProgressHUD.bundle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1514,6 +1571,7 @@
 				5E20450F1B73037B00BE4594 /* XMPPRoomOccupantCoreDataStorageObject.m in Sources */,
 				5E2044EB1B73037B00BE4594 /* XMPPXOAuth2Google.m in Sources */,
 				5E2044E51B73037B00BE4594 /* XMPPAnonymousAuthentication.m in Sources */,
+				5E20456D1B73619F00BE4594 /* MBProgressHUD.m in Sources */,
 				5E2045551B73037B00BE4594 /* XMPPStringPrep.m in Sources */,
 				5E20451D1B73037B00BE4594 /* XMPPvCardCoreDataStorageObject.m in Sources */,
 				5E2045601B73037B00BE4594 /* DDXMLDocument.m in Sources */,
@@ -1560,6 +1618,7 @@
 				5E2045001B73037B00BE4594 /* XMPPUserCoreDataStorageObject.m in Sources */,
 				5E2043941B73024400BE4594 /* UIStoryboard+WF.m in Sources */,
 				5E2045351B73037B00BE4594 /* XMPPCapabilitiesCoreDataStorage.m in Sources */,
+				5E2045791B73968500BE4594 /* WCMeViewController.m in Sources */,
 				5E2045321B73037B00BE4594 /* XMPPTransports.m in Sources */,
 				5E2045261B73037B00BE4594 /* XMPPvCardTempTel.m in Sources */,
 				5E2045501B73037B00BE4594 /* DDList.m in Sources */,
@@ -1576,6 +1635,7 @@
 				5E20450A1B73037B00BE4594 /* XMPPLastActivity.m in Sources */,
 				5E20450D1B73037B00BE4594 /* XMPPRoomCoreDataStorage.m in Sources */,
 				5E2044EA1B73037B00BE4594 /* XMPPXFacebookPlatformAuthentication.m in Sources */,
+				5E2045761B738BAA00BE4594 /* WCNavigationController.m in Sources */,
 				5E20452D1B73037B00BE4594 /* XMPPMessage+XEP_0066.m in Sources */,
 				5E2044EC1B73037B00BE4594 /* NSData+XMPP.m in Sources */,
 				5E2045211B73037B00BE4594 /* XMPPvCardTempAdrTypes.m in Sources */,
@@ -1613,6 +1673,7 @@
 				5E2044E91B73037B00BE4594 /* XMPPPlainAuthentication.m in Sources */,
 				5E2045461B73037B00BE4594 /* XMPPAutoTime.m in Sources */,
 				5E2045311B73037B00BE4594 /* XMPPSoftwareVersion.m in Sources */,
+				5E20456B1B73619F00BE4594 /* MBProgressHUD+HM.m in Sources */,
 				5E2045021B73037B00BE4594 /* XMPPRosterMemoryStorage.m in Sources */,
 				5E2044F91B73037B00BE4594 /* XMPPGoogleSharedStatus.m in Sources */,
 				5E20450B1B73037B00BE4594 /* XMPPPrivacy.m in Sources */,
