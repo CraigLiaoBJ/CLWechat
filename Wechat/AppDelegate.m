@@ -40,6 +40,18 @@
     
     //程序一启动就连接到主机
 //    [self connectToHost];
+    //从沙盒里加载数据到单例里面
+    [[WCUserInfo sharedWCUserInfo] loadUserFromSandbox];
+    
+    //判断用户的登陆状态 yes直接来到主界面
+    if ([WCUserInfo sharedWCUserInfo].LoginStatus) {
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        self.window.rootViewController = storyboard.instantiateInitialViewController;
+        //自动登录服务器
+        [self xmppUserLogin:nil];
+    }
+    
+
     
     return YES;
 }
@@ -63,7 +75,7 @@
     //设置JID
     //resource标识用户登陆的客户端 iPhone android
    //从沙盒中获取用户名
-    NSString *user = [[NSUserDefaults standardUserDefaults] objectForKey:@"user"];
+    NSString *user = [WCUserInfo sharedWCUserInfo].user;
     
     XMPPJID *myJID = [XMPPJID jidWithUser:user domain:@"catkingcraig.local" resource:@"iPhone"];
     _xmppStream.myJID = myJID;
@@ -86,7 +98,7 @@
     WCLog(@"再发送密码授权");
     NSError *error = nil;
     //从沙盒里面获取密码
-    NSString *pwd = [[NSUserDefaults standardUserDefaults] objectForKey:@"pwd"];
+    NSString *pwd = [WCUserInfo sharedWCUserInfo].pwd;
     
     [_xmppStream authenticateWithPassword:pwd error:&error];
     if (error) {
@@ -160,7 +172,12 @@
     //3.回到登录界面
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
     self.window.rootViewController = storyboard.instantiateInitialViewController;
+    
+    //4.更新用户的登录状态
+    [WCUserInfo sharedWCUserInfo].LoginStatus = NO;
+    [[WCUserInfo sharedWCUserInfo] saveUserInfoToSandbox];
 }
+
 - (void)xmppUserLogin:(XMPPResultBlock)resultBlock{
     //先把block存起来
     _resultBlock = resultBlock;

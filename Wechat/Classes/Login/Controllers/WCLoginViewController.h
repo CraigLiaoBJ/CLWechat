@@ -1,5 +1,5 @@
 //
-//  WCOtherLoginViewController.h
+//  WCLoginViewController.h
 //  Wechat
 //
 //  Created by Craig Liao on 15/8/6.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "WCBaseLoginViewController.h"
-@interface WCOtherLoginViewController : WCBaseLoginViewController
+@interface WCLoginViewController : WCBaseLoginViewController
 
 @end

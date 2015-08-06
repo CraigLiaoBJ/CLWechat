@@ -39,63 +39,15 @@
 - (IBAction)loginBtnClick {
     //登录
     //官方的登录实现
-    //1. 把用户名和密码放在沙盒里
+    //1. 把用户名和密码放在WCUserInfo的单例
     //2. 调用AppDelegate的一个login，连接服务并登录
-    NSString *user = self.userField.text;
-    NSString *pwd = self.pwdField.text;
     
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults setObject:user forKey:@"user"];
-    [defaults setObject:pwd forKey:@"pwd"];
-    [defaults synchronize];
+    WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
+    userInfo.user = self.userField.text;
+    userInfo.pwd = self.pwdField.text;
     
-    //隐藏键盘
-    [self.view endEditing:YES];
-    
-    [MBProgressHUD showMessage:@"正在登录中..." toView:self.view];
-    
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    
-    __weak typeof(self) selfVC = self;
-    [app xmppUserLogin:^(XMPPResultType type) {
-        [selfVC handleResultType:type];
-    }];
+    [self login];
 }
-
-- (void)handleResultType:(XMPPResultType)type{
-    //主线程刷新UI
-    dispatch_async(dispatch_get_main_queue(), ^{
-        [MBProgressHUD hideHUDForView:self.view];
-            switch (type) {
-                case XMPPResultTypeLoginSuccess:
-                    [self enterMainPage];
-                    NSLog(@"登录成功");
-                    break;
-                case XMPPResultTypeLoginFailure:
-                    NSLog(@"登录失败");
-                    [MBProgressHUD showError:@"用户名或者密码不正确"];
-                    break;
-                case XMPPResultTypeNetErr:
-                    NSLog(@"网络超时");
-                    [MBProgressHUD showError:@"网络不给力"];
-                    break;
-                default:
-                    break;
-            }
-    });
-}
-
-- (void)enterMainPage{
-    //隐藏模态窗口
-    [self dismissViewControllerAnimated:NO completion:nil];
-    
-    //登录成功来到主界面
-    //此方法是在子线程补调用，所以在主线程刷新UI
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.view.window.rootViewController = storyBoard.instantiateInitialViewController;
-}
-
-
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];

@@ -25,7 +25,7 @@
         <!--登录-->
         <scene sceneID="uRK-2x-Zvt">
             <objects>
-                <viewController id="WRP-pb-eQC" sceneMemberID="viewController">
+                <viewController id="WRP-pb-eQC" customClass="WCLoginViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="drz-yt-NCa"/>
                         <viewControllerLayoutGuide type="bottom" id="hT1-IB-fBE"/>
@@ -40,16 +40,19 @@
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="DefaultProfileHead_qq" translatesAutoresizingMaskIntoConstraints="NO" id="IQ7-a3-o3D">
                                         <rect key="frame" x="100" y="8" width="80" height="80"/>
                                     </imageView>
-                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a42-tj-2TQ">
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="a42-tj-2TQ" userLabel="密码">
                                         <rect key="frame" x="8" y="125" width="264" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-9Z-teb">
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Z7-9Z-teb" userLabel="登录">
                                         <rect key="frame" x="8" y="163" width="264" height="30"/>
-                                        <state key="normal" title="Button">
+                                        <state key="normal" title="登录">
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginBtnClick:" destination="WRP-pb-eQC" eventType="touchUpInside" id="HUV-iu-y5x"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LQa-gq-Xpw">
                                         <rect key="frame" x="36" y="208" width="30" height="30"/>
@@ -63,7 +66,7 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="哇哈哈哈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-xC-xfR">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="哇哈哈哈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-xC-xfR" userLabel="账号">
                                         <rect key="frame" x="106" y="96" width="68" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -100,6 +103,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="登录" id="Suu-FN-iJ8"/>
+                    <connections>
+                        <outlet property="loginBtn" destination="5Z7-9Z-teb" id="XwF-9s-dJH"/>
+                        <outlet property="pwdTextField" destination="a42-tj-2TQ" id="5mb-z1-Whc"/>
+                        <outlet property="userLabel" destination="wTW-xC-xfR" id="Orf-Zl-5CM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oYq-Y6-t0z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
