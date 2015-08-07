@@ -7,7 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol WCRegisterViewControllerDelegate <NSObject>
+//完成注册
+- (void)registerViewControllerDidFinishRegister;
+
+@end
 
 @interface WCRegisterViewController : UIViewController
+
+@property (nonatomic, weak) id<WCRegisterViewControllerDelegate> registerDelegate;
 
 @end

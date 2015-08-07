@@ -41,20 +41,68 @@
     // Dispose of any resources that can be recreated.
 }
 - (IBAction)registerBtnClick:(id)sender {
+    [self.view endEditing: YES];
+
+    //判断用户输入的是否为手机号码
+    if (![self.userField isTelphoneNum]) {
+        [MBProgressHUD showError:@"请输入正确的手机号码" toView:self.view];
+        return;
+    }
+    
+    
     //1.把用户注册保存到单例
     WCUserInfo *userInfo = [WCUserInfo sharedWCUserInfo];
     userInfo.registerUser = self.userField.text;
     userInfo.registerPwd = self.pwdField.text;
+    
+    
     //2.调用appDelegate的xmppUserRegister
     AppDelegate *app = [UIApplication sharedApplication].delegate;
     app.registerOperation = YES;
+    //提示
+    [MBProgressHUD showMessage:@"正在注册中..." toView:self.view];
+    __weak typeof(self) selfVC = self;
     [app xmppUserRegister:^(XMPPResultType type) {
-        
+        [selfVC handleResultType:type];
     }];
+}
+//处理注册的结果
+- (void)handleResultType:(XMPPResultType)type{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideHUDForView:self.view];
+        switch (type) {
+            case XMPPResultTypeNetErr:
+                [MBProgressHUD showError:@"网络不稳定" toView:self.view];
+                break;
+            case XMPPResultTypeRegisterSuccess:
+                [MBProgressHUD showError:@"注册成功" toView:self.view];
+                //回到上一个控制器
+                [self dismissViewControllerAnimated:YES completion:nil];
+                if ([self.registerDelegate respondsToSelector:@selector(registerViewControllerDidFinishRegister)]) {
+                    [self.registerDelegate registerViewControllerDidFinishRegister];
+                }
+                break;
+            case XMPPResultTypeRegisterFailure:
+                [MBProgressHUD showError:@"注册失败,用户名重复" toView:self.view];
+                break;
+            default:
+                break;
+        }
+    });
+    
 }
 
 - (IBAction)cancel:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+- (IBAction)textChange {
+    WCLog(@"bianhua");
+    //设置这侧按钮的可能状态
+    BOOL enabled = (self.userField.text.length != 0 && self.pwdField.text != 0);
+    self.registerBtn.enabled = enabled;
+    
+}
+
+
 
 @end

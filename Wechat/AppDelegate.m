@@ -173,11 +173,17 @@
 #pragma mark -- 注册成功
 - (void)xmppStreamDidRegister:(XMPPStream *)sender{
     WCLog(@"注册成功");
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterSuccess);
+    }
 }
 
 #pragma mark -- 注册失败
 - (void)xmppStream:(XMPPStream *)sender didNotRegister:(DDXMLElement *)error{
     WCLog(@"注册失败%@", error);
+    if (_resultBlock) {
+        _resultBlock(XMPPResultTypeRegisterFailure);
+    }
 }
 #pragma mark -- 公共方法
 - (void)xmppUserLogout{
