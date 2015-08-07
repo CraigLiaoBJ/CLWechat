@@ -151,6 +151,7 @@
 		5E20457C1B73A00700BE4594 /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20457B1B73A00700BE4594 /* WCLoginViewController.m */; };
 		5E2045811B73A1D600BE4594 /* WCUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045801B73A1D600BE4594 /* WCUserInfo.m */; };
 		5E2045841B73B18F00BE4594 /* WCBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045831B73B18F00BE4594 /* WCBaseLoginViewController.m */; };
+		5E59B4F41B74628E00D43769 /* WCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E59B4F31B74628E00D43769 /* WCRegisterViewController.m */; };
 		5E856AD81B72252A002B9CF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856AD71B72252A002B9CF2 /* main.m */; };
 		5E856ADB1B72252A002B9CF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856ADA1B72252A002B9CF2 /* AppDelegate.m */; };
 		5E856ADE1B72252A002B9CF2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856ADD1B72252A002B9CF2 /* ViewController.m */; };
@@ -470,6 +471,8 @@
 		5E2045801B73A1D600BE4594 /* WCUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUserInfo.m; sourceTree = "<group>"; };
 		5E2045821B73B18F00BE4594 /* WCBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseLoginViewController.h; sourceTree = "<group>"; };
 		5E2045831B73B18F00BE4594 /* WCBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseLoginViewController.m; sourceTree = "<group>"; };
+		5E59B4F21B74628E00D43769 /* WCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRegisterViewController.h; sourceTree = "<group>"; };
+		5E59B4F31B74628E00D43769 /* WCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRegisterViewController.m; sourceTree = "<group>"; };
 		5E856AD21B72252A002B9CF2 /* Wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5E856AD61B72252A002B9CF2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E856AD71B72252A002B9CF2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -545,6 +548,8 @@
 				5E20457B1B73A00700BE4594 /* WCLoginViewController.m */,
 				5E2045821B73B18F00BE4594 /* WCBaseLoginViewController.h */,
 				5E2045831B73B18F00BE4594 /* WCBaseLoginViewController.m */,
+				5E59B4F21B74628E00D43769 /* WCRegisterViewController.h */,
+				5E59B4F31B74628E00D43769 /* WCRegisterViewController.m */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -1672,6 +1677,7 @@
 				5E2045621B73037B00BE4594 /* DDXMLNode.m in Sources */,
 				5E20451C1B73037B00BE4594 /* XMPPvCardCoreDataStorage.m in Sources */,
 				5E20452F1B73037B00BE4594 /* XMPPDateTimeProfiles.m in Sources */,
+				5E59B4F41B74628E00D43769 /* WCRegisterViewController.m in Sources */,
 				5E20450E1B73037B00BE4594 /* XMPPRoomMessageCoreDataStorageObject.m in Sources */,
 				5E2045101B73037B00BE4594 /* XMPPRoomHybrid.xcdatamodeld in Sources */,
 				5E2045031B73037B00BE4594 /* XMPPUserMemoryStorageObject.m in Sources */,
