@@ -57,15 +57,16 @@
     
     
     //2.调用appDelegate的xmppUserRegister
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    app.registerOperation = YES;
+//    AppDelegate *app = [UIApplication sharedApplication].delegate;
+    [WCXMPPTool sharedWCXMPPTool].registerOperation = YES;
     //提示
     [MBProgressHUD showMessage:@"正在注册中..." toView:self.view];
     __weak typeof(self) selfVC = self;
-    [app xmppUserRegister:^(XMPPResultType type) {
+    [[WCXMPPTool sharedWCXMPPTool] xmppUserRegister:^(XMPPResultType type) {
         [selfVC handleResultType:type];
     }];
 }
+
 //处理注册的结果
 - (void)handleResultType:(XMPPResultType)type{
     dispatch_async(dispatch_get_main_queue(), ^{

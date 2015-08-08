@@ -69,12 +69,6 @@
                                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="哇哈哈哈" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-xC-xfR" userLabel="账号">
-                                        <rect key="frame" x="106" y="96" width="68" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.60290523044279776" green="0.67085586674226394" blue="0.82634943181818188" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -96,11 +90,22 @@
                                     <segue destination="oNb-WH-j2I" kind="presentation" id="DM9-jA-OvN"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="哇哈哈哈" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wTW-xC-xfR" userLabel="账号">
+                                <rect key="frame" x="168" y="250" width="264" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="264" id="NbP-0e-cTw"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="centerX" secondItem="KJL-Kd-mhA" secondAttribute="centerX" id="ICe-D4-2eB"/>
                             <constraint firstItem="PyD-SE-6la" firstAttribute="top" secondItem="drz-yt-NCa" secondAttribute="bottom" constant="90" id="h72-Ns-c6a"/>
+                            <constraint firstItem="wTW-xC-xfR" firstAttribute="top" secondItem="drz-yt-NCa" secondAttribute="bottom" constant="186" id="onz-zo-nnG"/>
+                            <constraint firstItem="wTW-xC-xfR" firstAttribute="centerX" secondItem="PyD-SE-6la" secondAttribute="centerX" id="oup-b7-NeM"/>
                             <constraint firstAttribute="centerX" secondItem="PyD-SE-6la" secondAttribute="centerX" id="pUU-Z9-Nc4"/>
                             <constraint firstItem="hT1-IB-fBE" firstAttribute="top" secondItem="KJL-Kd-mhA" secondAttribute="bottom" constant="32" id="vdj-9j-hgW"/>
                         </constraints>
@@ -119,7 +124,7 @@
         <!--其他方式登陆navigation-->
         <scene sceneID="dco-FT-G5q">
             <objects>
-                <navigationController id="oNb-WH-j2I" userLabel="其他方式登陆navigation" sceneMemberID="viewController">
+                <navigationController id="oNb-WH-j2I" userLabel="其他方式登陆navigation" customClass="WCNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="onY-Ff-ade">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -229,7 +234,7 @@
         <!--注册Navigation-->
         <scene sceneID="Ib3-1O-dKQ">
             <objects>
-                <navigationController id="JkN-64-KYM" userLabel="注册Navigation" sceneMemberID="viewController">
+                <navigationController id="JkN-64-KYM" userLabel="注册Navigation" customClass="WCNavigationController" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="K0w-6E-b0o">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

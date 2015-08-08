@@ -24,10 +24,9 @@
     
     [MBProgressHUD showMessage:@"正在登录中..." toView:self.view];
     
-    AppDelegate *app = [UIApplication sharedApplication].delegate;
-    app.registerOperation = NO;
+    [WCXMPPTool sharedWCXMPPTool].registerOperation = NO;
     __weak typeof(self) selfVC = self;
-    [app xmppUserLogin:^(XMPPResultType type) {
+    [[WCXMPPTool sharedWCXMPPTool] xmppUserLogin:^(XMPPResultType type) {
         [selfVC handleResultType:type];
     }];
 }

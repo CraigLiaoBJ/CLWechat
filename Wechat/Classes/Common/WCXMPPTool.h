@@ -1,12 +1,15 @@
 //
-//  AppDelegate.h
+//  WCXMPPTool.h
 //  Wechat
 //
-//  Created by Craig Liao on 15/8/5.
+//  Created by Craig Liao on 15/8/7.
 //  Copyright (c) 2015年 Craig Liao. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "Singleton.h"
+#import "XMPPFramework.h"
+
 typedef enum {
     XMPPResultTypeLoginSuccess,//登录成功
     XMPPResultTypeLoginFailure,//登录失败
@@ -16,9 +19,13 @@ typedef enum {
 }XMPPResultType;
 typedef void (^XMPPResultBlock)(XMPPResultType type);//XMPP请求结果的block
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface WCXMPPTool : NSObject
 
-@property (strong, nonatomic) UIWindow *window;
+singleton_interface(WCXMPPTool);
+
+@property (nonatomic, strong) XMPPvCardTempModule *vCard;//电子名片
+
+
 //注册标识 YES 注册/ NO 登录
 @property (nonatomic, assign, getter=isregisterOperation) BOOL registerOperation;
 //注销方法
@@ -28,5 +35,5 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);//XMPP请求结果的block
 //用户注册
 - (void)xmppUserRegister:(XMPPResultBlock)resultBlock;
 
-@end
 
+@end

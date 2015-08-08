@@ -1,22 +1,24 @@
 //
-//  AppDelegate.m
+//  WCXMPPTool.m
 //  Wechat
 //
-//  Created by Craig Liao on 15/8/5.
+//  Created by Craig Liao on 15/8/7.
 //  Copyright (c) 2015年 Craig Liao. All rights reserved.
 //
-#import "AppDelegate.h"
-#import "XMPPFramework.h"
-#import "WCNavigationController.h"
+
+#import "WCXMPPTool.h"
 //在AppDelegate实现登录
 //1.初始化XMPPStream
 //2.连接到服务器【传一个JID】
 //3.连接到服务成功后，再发送密码授权
 //4.授权成功后，发送“在线”消息
 
-@interface AppDelegate ()<XMPPStreamDelegate>{
+@interface WCXMPPTool ()<XMPPStreamDelegate>{
     XMPPStream *_xmppStream;
     XMPPResultBlock _resultBlock;
+    XMPPvCardTempModule *_vCard;//电子名片
+    XMPPvCardCoreDataStorage *_vCardStorage;//电子名片的数据存储
+    XMPPvCardAvatarModule *_avatar;//头像
 }
 //1.初始化XMPPStream
 - (void)setupXMPPStream;
@@ -32,33 +34,25 @@
 
 @end
 
-@implementation AppDelegate
+@implementation WCXMPPTool
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    //设置导航栏背景
-    [WCNavigationController setupNavTheme];
-    
-    //程序一启动就连接到主机
-//    [self connectToHost];
-    //从沙盒里加载数据到单例里面
-    [[WCUserInfo sharedWCUserInfo] loadUserFromSandbox];
-    
-    //判断用户的登陆状态 yes直接来到主界面
-    if ([WCUserInfo sharedWCUserInfo].LoginStatus) {
-        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-        self.window.rootViewController = storyboard.instantiateInitialViewController;
-        //自动登录服务器
-        [self xmppUserLogin:nil];
-    }
+singleton_implementation(WCXMPPTool);
 
-    
-    return YES;
-}
 
 #pragma mark -- 私有方法
 #pragma mark -- 初始化XMPPSTREAM
 - (void)setupXMPPStream{
     _xmppStream = [[XMPPStream alloc] init];
+
+#warning 每一个模块添加后都要激活
+    //添加电子名片模块
+    _vCardStorage = [XMPPvCardCoreDataStorage sharedInstance];
+    _vCard = [[XMPPvCardTempModule alloc] initWithvCardStorage:_vCardStorage];
+    //激活
+    [_vCard activate:_xmppStream];
+    //添加头像模块
+    _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
+    [_avatar activate:_xmppStream];
     
     //设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -73,7 +67,7 @@
     
     //设置JID
     //resource标识用户登陆的客户端 iPhone android
-   //从沙盒中获取用户名
+    //从沙盒中获取用户名
     NSString *user = nil;
     if (self.isregisterOperation) {
         user = [WCUserInfo sharedWCUserInfo].registerUser;
@@ -130,7 +124,7 @@
         //主机连接成功后发送密码进行授权
         [self sendPwdToHost];
     }
-
+    
 }
 
 #pragma mark -- 与主机断开连接
@@ -154,11 +148,11 @@
     }
     //登录成功，来到主界面
     //此方法是在子线程补调用，所以在主线程刷新UI
-//    dispatch_async(dispatch_get_main_queue(), ^{
-//        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-//        self.window.rootViewController = storyboard.instantiateInitialViewController;
-//    });
-   
+    //    dispatch_async(dispatch_get_main_queue(), ^{
+    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    //        self.window.rootViewController = storyboard.instantiateInitialViewController;
+    //    });
+    
 }
 
 #pragma mark -- 授权失败
@@ -196,8 +190,10 @@
     [_xmppStream disconnect];
     
     //3.回到登录界面
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
-    self.window.rootViewController = storyboard.instantiateInitialViewController;
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Login" bundle:nil];
+//    self.window.rootViewController = storyboard.instantiateInitialViewController;
+    
+    [UIStoryboard showInitialVCWithName:@"Login"];
     
     //4.更新用户的登录状态
     [WCUserInfo sharedWCUserInfo].LoginStatus = NO;
@@ -225,6 +221,5 @@
     //连接主机，成功后发送注册密码
     [self connectToHost];
 }
-
 
 @end

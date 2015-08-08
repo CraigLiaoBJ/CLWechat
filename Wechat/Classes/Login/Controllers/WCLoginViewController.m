@@ -58,13 +58,13 @@
     if ([destVC isKindOfClass:[WCNavigationController class]]) {
         WCNavigationController *nav = destVC;
         //获取根控制器
-        WCRegisterViewController *registerVC = (WCRegisterViewController *)nav.topViewController;
-        //设置注册控制器的代理
-
-        registerVC.registerDelegate = self;
-        
+        if ([nav.topViewController isKindOfClass:[WCNavigationController class]]) {
+            WCRegisterViewController *registerVC = (WCRegisterViewController *)nav.topViewController;
+            //设置注册控制器的代理
+            
+            registerVC.registerDelegate = self;
+        }
     }
-    
 }
 
 #pragma mark -- registerViewController代理

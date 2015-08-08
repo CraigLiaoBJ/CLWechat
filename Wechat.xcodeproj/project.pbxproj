@@ -151,6 +151,8 @@
 		5E20457C1B73A00700BE4594 /* WCLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E20457B1B73A00700BE4594 /* WCLoginViewController.m */; };
 		5E2045811B73A1D600BE4594 /* WCUserInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045801B73A1D600BE4594 /* WCUserInfo.m */; };
 		5E2045841B73B18F00BE4594 /* WCBaseLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E2045831B73B18F00BE4594 /* WCBaseLoginViewController.m */; };
+		5E242ACE1B74F90A004EB5AE /* WCXMPPTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E242ACD1B74F90A004EB5AE /* WCXMPPTool.m */; };
+		5E242AD41B75E01D004EB5AE /* WCProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E242AD31B75E01D004EB5AE /* WCProfileViewController.m */; };
 		5E59B4F41B74628E00D43769 /* WCRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E59B4F31B74628E00D43769 /* WCRegisterViewController.m */; };
 		5E856AD81B72252A002B9CF2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856AD71B72252A002B9CF2 /* main.m */; };
 		5E856ADB1B72252A002B9CF2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856ADA1B72252A002B9CF2 /* AppDelegate.m */; };
@@ -161,6 +163,7 @@
 		5E856AF21B72252A002B9CF2 /* WechatTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5E856AF11B72252A002B9CF2 /* WechatTests.m */; };
 		5E856D111B72320A002B9CF2 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E856D101B72320A002B9CF2 /* libxml2.dylib */; };
 		5E856D131B72323B002B9CF2 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E856D121B72323B002B9CF2 /* libresolv.dylib */; };
+		5EC1FCE71B762A6800C1CB92 /* WCEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -471,6 +474,10 @@
 		5E2045801B73A1D600BE4594 /* WCUserInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCUserInfo.m; sourceTree = "<group>"; };
 		5E2045821B73B18F00BE4594 /* WCBaseLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCBaseLoginViewController.h; sourceTree = "<group>"; };
 		5E2045831B73B18F00BE4594 /* WCBaseLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCBaseLoginViewController.m; sourceTree = "<group>"; };
+		5E242ACC1B74F90A004EB5AE /* WCXMPPTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCXMPPTool.h; sourceTree = "<group>"; };
+		5E242ACD1B74F90A004EB5AE /* WCXMPPTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCXMPPTool.m; sourceTree = "<group>"; };
+		5E242AD21B75E01D004EB5AE /* WCProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCProfileViewController.h; sourceTree = "<group>"; };
+		5E242AD31B75E01D004EB5AE /* WCProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCProfileViewController.m; sourceTree = "<group>"; };
 		5E59B4F21B74628E00D43769 /* WCRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCRegisterViewController.h; sourceTree = "<group>"; };
 		5E59B4F31B74628E00D43769 /* WCRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCRegisterViewController.m; sourceTree = "<group>"; };
 		5E856AD21B72252A002B9CF2 /* Wechat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Wechat.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -489,6 +496,8 @@
 		5E856D101B72320A002B9CF2 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		5E856D121B72323B002B9CF2 /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		5E856D141B7232B9002B9CF2 /* Wechat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wechat-Prefix.pch"; sourceTree = "<group>"; };
+		5EC1FCE51B762A6800C1CB92 /* WCEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditProfileViewController.h; sourceTree = "<group>"; };
+		5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditProfileViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1375,6 +1384,10 @@
 			children = (
 				5E2045771B73968500BE4594 /* WCMeViewController.h */,
 				5E2045781B73968500BE4594 /* WCMeViewController.m */,
+				5E242AD21B75E01D004EB5AE /* WCProfileViewController.h */,
+				5E242AD31B75E01D004EB5AE /* WCProfileViewController.m */,
+				5EC1FCE51B762A6800C1CB92 /* WCEditProfileViewController.h */,
+				5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */,
 			);
 			name = Controllers;
 			path = ../../../../Controllers;
@@ -1404,6 +1417,8 @@
 				5E20457E1B73A1A800BE4594 /* Singleton.h */,
 				5E20457F1B73A1D600BE4594 /* WCUserInfo.h */,
 				5E2045801B73A1D600BE4594 /* WCUserInfo.m */,
+				5E242ACC1B74F90A004EB5AE /* WCXMPPTool.h */,
+				5E242ACD1B74F90A004EB5AE /* WCXMPPTool.m */,
 			);
 			name = Singleton;
 			sourceTree = "<group>";
@@ -1685,6 +1700,7 @@
 				5E2044F51B73037B00BE4594 /* XMPPPresence.m in Sources */,
 				5E2043911B73024400BE4594 /* UIButton+WF.m in Sources */,
 				5E20451E1B73037B00BE4594 /* XMPPvCardTempCoreDataStorageObject.m in Sources */,
+				5E242AD41B75E01D004EB5AE /* WCProfileViewController.m in Sources */,
 				5E2045811B73A1D600BE4594 /* WCUserInfo.m in Sources */,
 				5E2045011B73037B00BE4594 /* XMPPResourceMemoryStorageObject.m in Sources */,
 				5E20452A1B73037B00BE4594 /* XMPPPubSub.m in Sources */,
@@ -1694,6 +1710,7 @@
 				5E2045421B73037B00BE4594 /* XMPPMessageDeliveryReceipts.m in Sources */,
 				5E2045841B73B18F00BE4594 /* WCBaseLoginViewController.m in Sources */,
 				5E20454F1B73037B00BE4594 /* NSXMLElement+XEP_0335.m in Sources */,
+				5E242ACE1B74F90A004EB5AE /* WCXMPPTool.m in Sources */,
 				5E2045431B73037B00BE4594 /* XMPPBlocking.m in Sources */,
 				5E20453F1B73037B00BE4594 /* XMPPMessage+XEP_0172.m in Sources */,
 				5E2044EE1B73037B00BE4594 /* NSXMLElement+XMPP.m in Sources */,
@@ -1716,6 +1733,7 @@
 				5E2045401B73037B00BE4594 /* XMPPPresence+XEP_0172.m in Sources */,
 				5E20454C1B73037B00BE4594 /* NSXMLElement+XEP_0297.m in Sources */,
 				5E2045491B73037B00BE4594 /* XEP_0223.m in Sources */,
+				5EC1FCE71B762A6800C1CB92 /* WCEditProfileViewController.m in Sources */,
 				5E2045391B73037B00BE4594 /* XMPPMessageArchiving.xcdatamodeld in Sources */,
 				5E2043961B73024400BE4594 /* UIView+WF.m in Sources */,
 				5E2043921B73024400BE4594 /* UIImage+WF.m in Sources */,
@@ -1869,9 +1887,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wechat/Wechat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = Wechat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1893,9 +1911,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wechat/Wechat-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
+					/usr/include/libxml2,
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
-					/usr/include/libxml2,
 				);
 				INFOPLIST_FILE = Wechat/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
@@ -1923,6 +1941,11 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = WechatTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1940,6 +1963,11 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Wechat/Wechat-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					/usr/include/libxml2,
+				);
 				INFOPLIST_FILE = WechatTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
