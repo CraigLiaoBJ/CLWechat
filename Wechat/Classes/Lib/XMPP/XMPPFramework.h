@@ -23,6 +23,9 @@
 //  The following is standard:
 
 #import "XMPP.h"
+//自动连接模块
+#import "XMPPReconnect.h"
+
 //电子名片模块
 #import "XMPPvCardTempModule.h"
 #import "XMPPvCardCoreDataStorage.h"
@@ -37,7 +40,6 @@
 // 
 //#import "XMPPCoreDataStorage.h"
 //
-//#import "XMPPReconnect.h"
 //
 //#import "XMPPRoster.h"
 //#import "XMPPRosterMemoryStorage.h"
