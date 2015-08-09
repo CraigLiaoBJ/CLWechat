@@ -75,11 +75,70 @@
                             <outlet property="delegate" destination="De7-os-AFE" id="GAV-Ws-W6T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="通讯录" id="yUN-XY-A6O"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="yUN-XY-A6O">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="6nt-Jn-yjl">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iNo-NH-GgF">
+                                <rect key="frame" x="501" y="7" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="contacts_add_friend">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="plP-4T-abR" kind="show" id="39Q-J0-L3N"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxv-Dl-aAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="621" y="768"/>
+        </scene>
+        <!--Add View Controller-->
+        <scene sceneID="5p6-Kh-gds">
+            <objects>
+                <tableViewController hidesBottomBarWhenPushed="YES" id="plP-4T-abR" customClass="WCAddViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="19g-oO-gAx">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="G5b-NP-TFm">
+                                <cells>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="44" id="GEH-BS-sr6">
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GEH-BS-sr6" id="xii-n8-ze0">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入手机号码" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QGq-ig-aBa">
+                                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="plP-4T-abR" id="dmh-Xc-mt6"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="QGq-ig-aBa" firstAttribute="top" secondItem="xii-n8-ze0" secondAttribute="top" id="7XC-U6-h1p"/>
+                                                <constraint firstAttribute="bottom" secondItem="QGq-ig-aBa" secondAttribute="bottom" id="Lul-QD-jnc"/>
+                                                <constraint firstItem="QGq-ig-aBa" firstAttribute="leading" secondItem="xii-n8-ze0" secondAttribute="leading" id="SEn-Nr-VaC"/>
+                                                <constraint firstAttribute="trailing" secondItem="QGq-ig-aBa" secondAttribute="trailing" id="lXc-0d-fK2"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="plP-4T-abR" id="ORT-2s-BG9"/>
+                            <outlet property="delegate" destination="plP-4T-abR" id="49L-Yj-wtC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="drm-RD-ww2" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1255" y="768"/>
         </scene>
         <!--Root View Controller-->
         <scene sceneID="BaN-Dd-Ta2">
@@ -502,6 +561,7 @@
     </scenes>
     <resources>
         <image name="DefaultHead" width="46" height="46"/>
+        <image name="contacts_add_friend" width="28" height="30"/>
         <image name="tabbar_contacts" width="27" height="23"/>
         <image name="tabbar_discover" width="23" height="23"/>
         <image name="tabbar_mainframe" width="25" height="23"/>
