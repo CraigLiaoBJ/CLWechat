@@ -164,6 +164,7 @@
 		5E856D111B72320A002B9CF2 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E856D101B72320A002B9CF2 /* libxml2.dylib */; };
 		5E856D131B72323B002B9CF2 /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E856D121B72323B002B9CF2 /* libresolv.dylib */; };
 		5EC1FCE71B762A6800C1CB92 /* WCEditProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */; };
+		5EC1FCEA1B76E56000C1CB92 /* WCContactsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 5EC1FCE91B76E56000C1CB92 /* WCContactsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -498,6 +499,8 @@
 		5E856D141B7232B9002B9CF2 /* Wechat-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Wechat-Prefix.pch"; sourceTree = "<group>"; };
 		5EC1FCE51B762A6800C1CB92 /* WCEditProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCEditProfileViewController.h; sourceTree = "<group>"; };
 		5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCEditProfileViewController.m; sourceTree = "<group>"; };
+		5EC1FCE81B76E56000C1CB92 /* WCContactsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WCContactsViewController.h; sourceTree = "<group>"; };
+		5EC1FCE91B76E56000C1CB92 /* WCContactsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WCContactsViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1388,6 +1391,8 @@
 				5E242AD31B75E01D004EB5AE /* WCProfileViewController.m */,
 				5EC1FCE51B762A6800C1CB92 /* WCEditProfileViewController.h */,
 				5EC1FCE61B762A6800C1CB92 /* WCEditProfileViewController.m */,
+				5EC1FCE81B76E56000C1CB92 /* WCContactsViewController.h */,
+				5EC1FCE91B76E56000C1CB92 /* WCContactsViewController.m */,
 			);
 			name = Controllers;
 			path = ../../../../Controllers;
@@ -1636,6 +1641,7 @@
 				5E2044ED1B73037B00BE4594 /* NSNumber+XMPP.m in Sources */,
 				5E2045451B73037B00BE4594 /* XMPPPing.m in Sources */,
 				5E2045531B73037B00BE4594 /* XMPPIDTracker.m in Sources */,
+				5EC1FCEA1B76E56000C1CB92 /* WCContactsViewController.m in Sources */,
 				5E2044FC1B73037B00BE4594 /* XMPPGroupCoreDataStorageObject.m in Sources */,
 				5E2045371B73037B00BE4594 /* XMPPCapsResourceCoreDataStorageObject.m in Sources */,
 				5E2045091B73037B00BE4594 /* XMPPIQ+LastActivity.m in Sources */,

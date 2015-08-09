@@ -54,16 +54,16 @@
             </objects>
             <point key="canvasLocation" x="633" y="100"/>
         </scene>
-        <!--Root View Controller-->
+        <!--通讯录-->
         <scene sceneID="wCD-np-bSv">
             <objects>
-                <tableViewController id="De7-os-AFE" sceneMemberID="viewController">
+                <tableViewController id="De7-os-AFE" userLabel="通讯录" customClass="WCContactsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="ut8-nB-jJ8">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="2f9-va-Nya">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ContactCell" id="2f9-va-Nya">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2f9-va-Nya" id="xp8-ds-kme">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -75,7 +75,7 @@
                             <outlet property="delegate" destination="De7-os-AFE" id="GAV-Ws-W6T"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="yUN-XY-A6O"/>
+                    <navigationItem key="navigationItem" title="通讯录" id="yUN-XY-A6O"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kxv-Dl-aAS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

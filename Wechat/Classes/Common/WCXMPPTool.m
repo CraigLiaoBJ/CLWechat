@@ -21,6 +21,8 @@
     XMPPvCardCoreDataStorage *_vCardStorage;//电子名片的数据存储
     XMPPvCardAvatarModule *_avatar;//头像
     
+    XMPPRoster *_roster;//花名册模块
+    XMPPRosterCoreDataStorage *_rosterStorage;//花名册数据存储
 }
 //1.初始化XMPPStream
 - (void)setupXMPPStream;
@@ -59,6 +61,11 @@ singleton_implementation(WCXMPPTool);
     //添加头像模块
     _avatar = [[XMPPvCardAvatarModule alloc] initWithvCardTempModule:_vCard];
     [_avatar activate:_xmppStream];
+    
+    //添加花名册模块【获取好友列表】
+    _rosterStorage = [[XMPPRosterCoreDataStorage alloc] init];
+    _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
+    [_roster activate:_xmppStream];
     
     //设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
@@ -127,6 +134,7 @@ singleton_implementation(WCXMPPTool);
     [_reconnect deactivate];
     [_vCard deactivate];
     [_avatar deactivate];
+    [_roster deactivate];
     
     //断开连接
     [_xmppStream disconnect];
@@ -136,6 +144,8 @@ singleton_implementation(WCXMPPTool);
     _vCard = nil;
     _vCardStorage =nil;
     _avatar = nil;
+    _roster = nil;
+    _rosterStorage = nil;
     _xmppStream = nil;
     
 }

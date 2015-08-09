@@ -24,6 +24,7 @@ typedef void (^XMPPResultBlock)(XMPPResultType type);//XMPP请求结果的block
 singleton_interface(WCXMPPTool);
 
 @property (nonatomic, strong) XMPPvCardTempModule *vCard;//电子名片
+@property (nonatomic, strong) XMPPRosterCoreDataStorage *rosterStorage;//花名册数据存储
 
 
 //注册标识 YES 注册/ NO 登录
