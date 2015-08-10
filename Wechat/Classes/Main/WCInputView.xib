@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7531" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7520"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="WCInputView">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="50"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MDf-qW-2SR">
+                    <rect key="frame" x="47" y="9" width="452" height="32"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="send"/>
+                    <connections>
+                        <outlet property="delegate" destination="iN0-l3-epB" id="1W1-fi-DWg"/>
+                    </connections>
+                </textView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pw8-ek-9K0">
+                    <rect key="frame" x="550" y="0.0" width="50" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="fqh-IB-Yy4"/>
+                        <constraint firstAttribute="width" constant="50" id="mum-0S-GNE"/>
+                    </constraints>
+                    <state key="normal" image="TypeSelectorBtn_Black">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.57956518308080807" green="0.57956518308080807" blue="0.57956518308080807" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="MDf-qW-2SR" secondAttribute="trailing" constant="101" id="75Y-PE-ADS"/>
+                <constraint firstItem="MDf-qW-2SR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="47" id="E5W-tL-aAM"/>
+                <constraint firstItem="MDf-qW-2SR" firstAttribute="top" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="JTT-TO-wcK"/>
+                <constraint firstItem="pw8-ek-9K0" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Jpl-k3-kQg"/>
+                <constraint firstItem="MDf-qW-2SR" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="9" id="KXD-gy-Wuk"/>
+                <constraint firstAttribute="bottom" secondItem="MDf-qW-2SR" secondAttribute="bottom" id="PPG-LF-XOi"/>
+                <constraint firstAttribute="trailing" secondItem="MDf-qW-2SR" secondAttribute="trailing" constant="101" id="QQh-GZ-qud"/>
+                <constraint firstAttribute="trailing" secondItem="pw8-ek-9K0" secondAttribute="trailing" id="sRv-7f-4IP"/>
+                <constraint firstAttribute="bottom" secondItem="MDf-qW-2SR" secondAttribute="bottom" constant="9" id="sgs-Gz-N7m"/>
+                <constraint firstItem="MDf-qW-2SR" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="iN0-l3-epB" secondAttribute="leading" constant="47" id="xXh-M9-eAI"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="PPG-LF-XOi"/>
+                </mask>
+            </variation>
+            <connections>
+                <outlet property="addBtn" destination="pw8-ek-9K0" id="dtf-Db-EPc"/>
+                <outlet property="textView" destination="MDf-qW-2SR" id="wjh-aJ-3sA"/>
+            </connections>
+        </view>
+    </objects>
+    <resources>
+        <image name="TypeSelectorBtn_Black" width="35" height="35"/>
+    </resources>
+</document>

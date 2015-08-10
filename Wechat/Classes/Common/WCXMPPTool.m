@@ -7,6 +7,7 @@
 //
 
 #import "WCXMPPTool.h"
+NSString *const WCLoginStatusChangeNotification = @"WCLoginStatusNotification";
 //在AppDelegate实现登录
 //1.初始化XMPPStream
 //2.连接到服务器【传一个JID】
@@ -23,6 +24,9 @@
     
     XMPPRoster *_roster;//花名册模块
     XMPPRosterCoreDataStorage *_rosterStorage;//花名册数据存储
+    
+    XMPPMessageArchiving *_msgArchiving;//聊天模块
+    XMPPMessageArchivingCoreDataStorage *_msgStorage;//聊天的数据存储
 }
 //1.初始化XMPPStream
 - (void)setupXMPPStream;
@@ -67,6 +71,13 @@ singleton_implementation(WCXMPPTool);
     _roster = [[XMPPRoster alloc] initWithRosterStorage:_rosterStorage];
     [_roster activate:_xmppStream];
     
+    //添加聊天模块
+    _msgStorage = [[XMPPMessageArchivingCoreDataStorage alloc] init];
+    _msgArchiving = [[XMPPMessageArchiving alloc] initWithMessageArchivingStorage:_msgStorage];
+    [_msgArchiving activate:_xmppStream];
+    
+    _xmppStream.enableBackgroundingOnSocket = YES;
+    
     //设置代理
     [_xmppStream addDelegate:self delegateQueue:dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0)];
 }
@@ -77,6 +88,9 @@ singleton_implementation(WCXMPPTool);
     if (!_xmppStream) {
         [self setupXMPPStream];
     }
+    
+    //发送通知[正在连接]
+    [self postNotification:XMPPResultTypeConnecting];
     
     //设置JID
     //resource标识用户登陆的客户端 iPhone android
@@ -125,6 +139,15 @@ singleton_implementation(WCXMPPTool);
     [_xmppStream sendElement:presence];
 }
 
+//通知WCHistoryViewControllers登录状态
+
+- (void)postNotification:(XMPPResultType)resultType{
+    //将登录状态放入字典，然后通过通知传递
+    NSDictionary *userInfo = @{@"loginStatus":@(resultType)};
+    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WCLoginStatusChangeNotification object:nil userInfo:userInfo];
+}
+
 #pragma mark 释放xmppStream相关的资源
 - (void)teardownXmpp{
     //移除代理
@@ -135,6 +158,7 @@ singleton_implementation(WCXMPPTool);
     [_vCard deactivate];
     [_avatar deactivate];
     [_roster deactivate];
+    [_msgArchiving deactivate];
     
     //断开连接
     [_xmppStream disconnect];
@@ -146,6 +170,8 @@ singleton_implementation(WCXMPPTool);
     _avatar = nil;
     _roster = nil;
     _rosterStorage = nil;
+    _msgArchiving = nil;
+    _msgStorage = nil;
     _xmppStream = nil;
     
 }
@@ -172,6 +198,11 @@ singleton_implementation(WCXMPPTool);
     if (error && _resultBlock) {
         _resultBlock(XMPPResultTypeNetErr);
     }
+    
+    if (error) {
+        //通知 WCHistoryViewControllers【网络不稳定】
+        [self postNotification:XMPPResultTypeNetErr];
+    }
     WCLog(@"与主机连接失败%@", error);
 }
 
@@ -184,13 +215,8 @@ singleton_implementation(WCXMPPTool);
     if (_resultBlock){
         _resultBlock(XMPPResultTypeLoginSuccess);
     }
-    //登录成功，来到主界面
-    //此方法是在子线程补调用，所以在主线程刷新UI
-    //    dispatch_async(dispatch_get_main_queue(), ^{
-    //        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    //        self.window.rootViewController = storyboard.instantiateInitialViewController;
-    //    });
     
+    [self postNotification:XMPPResultTypeLoginSuccess];
 }
 
 #pragma mark -- 授权失败
@@ -200,6 +226,8 @@ singleton_implementation(WCXMPPTool);
     if (_resultBlock) {
         _resultBlock(XMPPResultTypeLoginFailure);
     }
+    
+    [self postNotification:XMPPResultTypeRegisterFailure];
 }
 
 #pragma mark -- 注册成功
@@ -217,6 +245,28 @@ singleton_implementation(WCXMPPTool);
         _resultBlock(XMPPResultTypeRegisterFailure);
     }
 }
+
+#pragma mark -- 接收到好友的消息
+- (void)xmppStream:(XMPPStream *)sender didReceiveMessage:(XMPPMessage *)message{
+    //如果当前程序不在前台，就发出一个本地通知
+    if ([UIApplication sharedApplication].applicationState != UIApplicationStateActive ){
+        //本地通知
+        UILocalNotification *localNoti = [[UILocalNotification alloc] init];
+        //设置内容
+        localNoti.alertBody = [NSString stringWithFormat:@"%@\n%@", message.fromStr, message.body];
+        
+        //设置通知执行时间
+        localNoti.fireDate = [NSDate date];
+        
+        //声音
+        localNoti.soundName = @"default";
+        
+        //执行
+        [[UIApplication sharedApplication] scheduleLocalNotification:localNoti];
+    }
+    
+}
+
 #pragma mark -- 公共方法
 - (void)xmppUserLogout{
     //1.发送“离线”消息

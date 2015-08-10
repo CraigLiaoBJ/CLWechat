@@ -65,8 +65,9 @@
     
     //登录成功来到主界面
     //此方法是在子线程补调用，所以在主线程刷新UI
-    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    self.view.window.rootViewController = storyBoard.instantiateInitialViewController;
+//    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+//    self.view.window.rootViewController = storyBoard.instantiateInitialViewController;
+    [UIStoryboard showInitialVCWithName:@"Main"];
 }
 
 
